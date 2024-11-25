@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         body: const Center(
           child: Column(
             children: [
-              ImageSection(image: ./image/test.jpg),
+              ImageSection(image: images/lake.jpg),
               TitleSection(name: 'テストです', location: 'テスト2'),
               TitleSection(name: 'テストです', location: 'テスト2'),
               TitleSection(name: 'テストです', location: 'テスト2'),
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
 class ImageSection extends StatelessWidget {
   const ImageSection(
     {super.key
-     required this.image ,
+     required this.image,
                     });
 
   final String image;
