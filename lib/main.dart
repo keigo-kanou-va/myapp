@@ -15,9 +15,35 @@ class MyApp extends StatelessWidget {
           title: const Text(appTitle),
         ),
         body: const Center(
-          child: TitleSection(name: 'テストです'),
+          child: Column(
+            children: [
+              ImageSection(image: ./image/test.jpg),
+              TitleSection(name: 'テストです', location: 'テスト2'),
+              TitleSection(name: 'テストです', location: 'テスト2'),
+              TitleSection(name: 'テストです', location: 'テスト2'),
+            ],
+          ) 
         ),
       ),
+    );
+  }
+}
+
+class ImageSection extends StatelessWidget {
+  const ImageSection(
+    {super.key
+     required this.image ,
+                    });
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      image,
+      width: 600,
+      height: 240,
+      fit: BoxFit.cover,
     );
   }
 }
@@ -26,13 +52,39 @@ class TitleSection extends StatelessWidget {
   const TitleSection({
     super.key,
     required this.name,
-    //  required this.location,
+    required this.location,
   });
 
   final String name;
+  final String location;
 
   @override
   Widget build(BuildContext context) {
-    return Text(name);
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+                  Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+      ),
+              Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    location,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+      ),
+        ],
+    ),
+    );
   }
 }
