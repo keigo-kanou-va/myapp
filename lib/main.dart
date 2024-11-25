@@ -15,25 +15,24 @@ class MyApp extends StatelessWidget {
           title: const Text(appTitle),
         ),
         body: const Center(
-          child: Column(
-            children: [
-              ImageSection(image: images/lake.jpg),
-              TitleSection(name: 'テストです', location: 'テスト2'),
-              TitleSection(name: 'テストです', location: 'テスト2'),
-              TitleSection(name: 'テストです', location: 'テスト2'),
-            ],
-          ) 
-        ),
+            child: Column(
+          children: [
+            ImageSection(image: 'images/lake.jpg'),
+            TitleSection(name: 'テストです', location: 'テスト2'),
+            TitleSection(name: 'テストです', location: 'テスト2'),
+            TitleSection(name: 'テストです', location: 'テスト2'),
+          ],
+        )),
       ),
     );
   }
 }
 
 class ImageSection extends StatelessWidget {
-  const ImageSection(
-    {super.key
-     required this.image,
-                    });
+  const ImageSection({
+    super.key,
+    required this.image,
+  });
 
   final String image;
 
@@ -41,8 +40,8 @@ class ImageSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       image,
-      width: 600,
-      height: 240,
+      width: 60,
+      height: 24,
       fit: BoxFit.cover,
     );
   }
@@ -65,26 +64,26 @@ class TitleSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-                  Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-      ),
-              Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    location,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-      ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              name,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              location,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
-    ),
+      ),
     );
   }
 }
