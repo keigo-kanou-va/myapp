@@ -23,7 +23,17 @@ class MyApp extends StatelessWidget {
               location: 'Kandersteg, Switzerland',
             ),
             ButtonSection(),
-            TitleSection(name: 'テストです', location: 'テスト2'),
+            TextSection(
+              description:
+               'text section!!  '
+               'text section!!  '
+               'text section!!  '
+               'text section!!  '
+               'text section!!  '
+               'text section!!  '
+               'text section!!  '
+               'text section!!  '
+              ),
           ],
         )),
       ),
@@ -44,8 +54,8 @@ class ImageSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       image,
-      width: 60,
-      height: 24,
+      width: 600,
+      height: 240,
       fit: BoxFit.cover,
     );
   }
@@ -135,15 +145,15 @@ class ButtonSection extends StatelessWidget {
           //Row 2
           ButtonWithText(
             color: color,
-            icon: Icons.call,
-            label: 'CALL',
+            icon: Icons.near_me,
+            label: 'ROUTE',
           ),
 
           //Row 3
           ButtonWithText(
             color: color,
-            icon: Icons.call,
-            label: 'CALL',
+            icon: Icons.share,
+            label: 'SHARE',
           ),
         ],
       ),
@@ -189,3 +199,27 @@ class ButtonWithText extends StatelessWidget {
 }
 
 // === ButtonWithText ここまで ===
+
+// === TextSection ここから===
+
+class TextSection extends StatelessWidget {
+  const TextSection({
+    super.key,
+    required this.description,
+  });
+
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: Text(
+        description,
+        softWrap: true,
+      ),
+    );
+  }
+}
+
+// === TextSection ここまで ===
