@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
               name: 'Oeschinen Lake Campground',
               location: 'Kandersteg, Switzerland',
             ),
-            TitleSection(name: 'テストです', location: 'テスト2'),
+            ButtonSection(),
             TitleSection(name: 'テストです', location: 'テスト2'),
           ],
         )),
@@ -112,3 +112,80 @@ class TitleSection extends StatelessWidget {
 }
 
 // === TitleSection ここまで===
+
+// === ButtonSection ここまで ===
+
+class ButtonSection extends StatelessWidget {
+  const ButtonSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final Color color = Theme.of(context).primaryColor;
+    return SizedBox(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          //Row 1
+          ButtonWithText(
+            color: color,
+            icon: Icons.call,
+            label: 'CALL',
+          ),
+
+          //Row 2
+          ButtonWithText(
+            color: color,
+            icon: Icons.call,
+            label: 'CALL',
+          ),
+
+          //Row 3
+          ButtonWithText(
+            color: color,
+            icon: Icons.call,
+            label: 'CALL',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// === ButtonWithText ここから===
+
+class ButtonWithText extends StatelessWidget {
+  const ButtonWithText({
+    super.key,
+    required this.color,
+    required this.icon,
+    required this.label,
+  });
+
+  final Color color;
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color),
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+// === ButtonWithText ここまで ===
